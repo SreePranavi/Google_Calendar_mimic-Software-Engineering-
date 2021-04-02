@@ -1,0 +1,112 @@
+.logo{
+  float: left;
+  padding-left: 100px;
+  width:500;
+  height:500;
+ }
+
+.signin {
+  padding-right: 300px;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  float: right;
+}
+
+#gs{
+   background-color:#34A853;
+}
+
+input[type=text], input[type=password] {
+  width: 140%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.cb {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  font-size: 17px;
+}
+
+
+.cb input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+
+.cm {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 17px;
+  width: 17px;
+  background-color: #eee;
+}
+
+
+.cb:hover input ~ .cm {
+  background-color: #ccc;
+}
+
+.cb input:checked ~ .cm {
+  background-color: #2196F3;
+}
+
+.cm:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.cb input:checked ~ .cm:after {
+  display: block;
+}
+
+
+.cb .cm:after {
+  left: 6px;
+  top: 3px;
+  width: 2px;
+  height: 7px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+button {
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 140%;
+}
+
+#s{
+  background-color: #2196F3
+}
+
+
+button:hover {
+  opacity: 0.7;
+}
+
+
+
