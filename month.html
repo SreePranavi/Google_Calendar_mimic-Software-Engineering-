@@ -1,0 +1,120 @@
+<html>
+
+<head>
+	<title> MONTH view </title>
+	<link rel="stylesheet" href="view.css">
+	<link rel="stylesheet" href="month.css">
+
+<body>
+	<div id="main">
+		<div class="img">
+		
+		<img src="cal1.png" alt="Calendar" class="logo">
+
+		</div>
+	
+		&emsp; <b> Calendar </b>
+		
+		&emsp;&emsp; <span class="labl">This Month</span>
+		
+		&emsp;&emsp;&emsp;&emsp;<a href="#" class="previous round">&#8249;</a>
+		&emsp;<a href="#" class="next round">&#8250;</a>
+		
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<div class="dropdown">
+			<button onclick="myFunction()" class="dropbtn">Change View</button>
+			<div id="myDropdown" class="dropdown-content">
+				<a href="day.html">Day</a>
+				<a href="week.html">Week</a>
+				<a href="month.html">Month</a>
+			</div>
+		</div>
+
+	</div>	
+	
+	<div id="mt">
+		<table style="widht:100%">
+			<tr>
+				<th class="day">Monday</th>
+				<th class="day">Tuesday</th>
+				<th class="day">Wednesday</th>
+				<th class="day">Thursday</th>
+				<th class="day">Friday</th>
+				<th class="day">Saturday</th>	
+				<th class="day">Sunday</th>
+			</tr>
+			<tr>
+				<td class="d"> </td>
+				<td class="d"> </td>
+				<td class="d"> </td>
+				<td class="d"><button style="width:100%">1</button></td>
+				<td class="d"><button style="width:100%">2</button></td>
+				<td class="d"><button style="width:100%">3</button></td>
+				<td class="d"><button style="width:100%">4</button></td>
+			</tr>
+			<tr>
+				<td class="d"><button style="width:100%">5</button></td>
+				<td class="d"><button style="width:100%">6</button></td>
+				<td class="d"><button style="width:100%">7</button></td>
+				<td class="d"><button style="width:100%">8</button></td>
+				<td class="d"><button style="width:100%">9</button></td>
+				<td class="d"><button style="width:100%">10</button></td>
+				<td class="d"><button style="width:100%">11</button></td>
+			</tr>
+			<tr>
+				<td class="d"><button style="width:100%">12</button></td>
+				<td class="d"><button style="width:100%">13</button></td>
+				<td class="d"><button style="width:100%">14</button></td>
+				<td class="d"><button style="width:100%">15</button></td>
+				<td class="d"><button style="width:100%">16</button></td>
+				<td class="d"><button style="width:100%">17</button></td>
+				<td class="d"><button style="width:100%">18</button></td>
+			</tr>
+			<tr>
+				<td class="d"><button style="width:100%">19</button></td>
+				<td class="d"><button style="width:100%">20</button></td>
+				<td class="d"><button style="width:100%">21</button></td>
+				<td class="d"><button style="width:100%">22</button></td>
+				<td class="d"><button style="width:100%">23</button></td>
+				<td class="d"><button style="width:100%">24</button></td>
+				<td class="d"><button style="width:100%">25</button></td>
+			</tr>
+			<tr>
+				<td class="d"><button style="width:100%">26</button></td>
+				<td class="d"><button style="width:100%">27</button></td>
+				<td class="d"><button style="width:100%">28</button></td>
+				<td class="d"><button style="width:100%">29</button></td>
+				<td class="d"><button style="width:100%">30</button></td>
+				<td class="d"><button style="width:100%">31</button></td>
+				<td class="d"> </td>
+			</tr>
+	</div>
+	
+</div>
+
+	
+<script>
+
+	function myFunction() {
+	  document.getElementById("myDropdown").classList.toggle("show");
+	}
+
+	// Close the dropdown menu if the user clicks outside of it
+	window.onclick = function(event) {
+	  if (!event.target.matches('.dropbtn')) {
+		var dropdowns = document.getElementsByClassName("dropdown-content");
+		var i;
+		for (i = 0; i < dropdowns.length; i++) {
+		  var openDropdown = dropdowns[i];
+		  if (openDropdown.classList.contains('show')) {
+			openDropdown.classList.remove('show');
+		  }
+		}
+	  }
+	}
+
+</script>
+
+</body>
+
+</html>

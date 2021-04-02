@@ -1,0 +1,138 @@
+<html>
+
+<head>
+	<title> DAY view </title>
+	<link rel="stylesheet" href="view.css">
+	<link rel="stylesheet" href="day.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+	<div id="main">
+		<div class="img">
+		
+		<img src="cal1.png" alt="Calendar" class="logo">
+
+		</div>
+	
+		&emsp; <b> Calendar </b>
+		
+		&emsp;&emsp; <span class="labl">Today</span>
+		
+		&emsp;&emsp;&emsp;&emsp;<a href="#" class="previous round">&#8249;</a>
+		&emsp;<a href="#" class="next round">&#8250;</a>
+		
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<div class="dropdown">
+			<button onclick="myFunction()" class="dropbtn">Change View</button>
+			<div id="myDropdown" class="dropdown-content">
+				<a href="day.html">Day</a>
+				<a href="week.html">Week</a>
+				<a href="month.html">Month</a>
+			</div>
+		</div>
+
+	</div>	
+	
+	<table id="t" align="center">
+			<tr>
+			<td class="time" > 1 AM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 2 AM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 3 AM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 4 AM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 5 AM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 6 AM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 7 AM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 8 AM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 9 AM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 10 AM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 11 AM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 12 AM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 1 PM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 2 PM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 3 PM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 4 PM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 5 PM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 6 PM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 7 PM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 8 PM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 9 PM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 10 PM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 11 PM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+			<tr><td class="time"> 12 PM </td>
+			<td class="time" style="width:900px"><button class="bd" style="width:100%;height:100%;"> </button></td>
+			</tr>
+		</table>
+	
+	
+<script>
+
+	function myFunction() {
+	  document.getElementById("myDropdown").classList.toggle("show");
+	}
+
+	// Close the dropdown menu if the user clicks outside of it
+	window.onclick = function(event) {
+	  if (!event.target.matches('.dropbtn')) {
+		var dropdowns = document.getElementsByClassName("dropdown-content");
+		var i;
+		for (i = 0; i < dropdowns.length; i++) {
+		  var openDropdown = dropdowns[i];
+		  if (openDropdown.classList.contains('show')) {
+			openDropdown.classList.remove('show');
+		  }
+		}
+	  }
+	}
+
+</script>
+
+</body>
+
+</html>
