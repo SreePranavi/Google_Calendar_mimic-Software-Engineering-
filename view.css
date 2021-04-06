@@ -115,7 +115,7 @@ a:hover {
 }
 
 table, th{
-	
+
   border: 1px solid black;
   border-collapse: collapse;
 }
@@ -125,11 +125,70 @@ table, th{
 	background-color:white;
 	border: 1px black;
 	color: black;
-	cursor: pointer; 
+	cursor: pointer;
 	vertical-align:top;
 }
 
 
 .d button:hover {
   background-color: #f1f1f1 ;
+}
+
+
+/*modals css*/
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 23%;
+	border-radius: 10px;
+	text-decoration: none;
+}
+
+.btnclass {
+ background-color: #4285F4;
+ border: none;
+ border-radius: 7px;
+ color: white;
+ padding: 10px 15px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 14px;
+ opacity: 0.75;
+}
+
+.btnclass:hover, .btnclass:focus {
+  background-color: #1967D2;
+}
+.is-active-btn {
+background-color: #1967D2;
+opacity: 1;
+}
+
+.savebtn{
+	background-color: #4285F4;
+	border: none;
+	border-radius: 7px;
+	color: white;
+  padding: 10px 15px;
+	text-align: center;
+	text-decoration: none;
+	font-size: 14px;
+	opacity: 0.75;
+}
+.savebtn:hover, .savebtn:focus {
+  background-color: #1967D2;
 }
