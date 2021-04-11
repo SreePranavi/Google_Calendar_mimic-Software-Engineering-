@@ -1,4 +1,5 @@
 <html>
+<!--Merged-->
 
 <head>
 	<title> WEEK view </title>
@@ -32,43 +33,13 @@
 			</div>
 		</div>
 	</div>
-    <?php
-    $recipientEmail = $_POST["guests"];
-    $title = $_POST["title"];
-    $date = $_POST["date"];
-    $time = $_POST["time"];
-require_once('PHPMailer/PHPMailerAutoload.php');
-$mail = new PHPMailer();
-$mail->isSMTP();
-$mail->SMTPAuth = true;
-$mail->SMTPSecure = 'ssl';
-$mail->Host = 'smtp.gmail.com';
-$mail->Port = '465';
-$mail->isHTML();
-$mail->Username = 'jsivanjali@gmail.com';
-$mail->Password = 'sophisticat';
-$mail->SetFrom('jsivanjali@gmail.com','Sivanjali');
-$mail->Subject = $_POST['title'];
-$mail->Body = "This is to notify that you have a meeting on $date at $time regarding $title" ;
-
-$mail->AddAddress($recipientEmail);
-
-$result = $mail->Send();
-
-if($result == 1){
-    echo "OK Message";
-}
-else{
-    echo "";
-}
-?>
 
 	<div id="Eventmodal" class="modal">
 		<div class="modal-content">
 			<button id="EventButton" class="Eventbuttonclass btnclass is-active-btn" onclick="openeventmodal()"><span class="btn-text">Event</span></button>
 			<button id="TaskButton" class="Taskbuttonclass btnclass" onclick="opentaskmodal()"><span class="btn-text">Task</span></button>
 			<button id="ReminderButton" class="Reminderbuttonclass btnclass" onclick="openremmodal()"><span class="btn-text">Reminder</span></button>
-			<form method="POST" action="">
+			<form>
 			<br>
 			<input type="text" placeholder="Add title" name="title">
 			<br>
@@ -77,7 +48,7 @@ else{
 			<br>
 			<br>
 			<label>Time	</label>
-  		    <input type="time" id="time" name="time">
+  		<input type="time" id="time" name="time">
 			<br>
 			<br>
 			<div id="addguestcontainer">
@@ -86,13 +57,12 @@ else{
 			<!--<a ><button id="addguests" onclick="addGuests()">Add</button></a>-->
 			<a onclick="addGuests()">Add</a>
 			</div>
+		  </form>
 			<div>
-			<button class="submit"><span class="close">Save</span></button>
-            </form>
+			<button class="savebtn"><span class="close">Save</span></button>
 		 </div>
 		</div>
 	</div>
-
 
 	<div id="TaskModal" class="modal">
 		<div class="modal-content">
@@ -389,4 +359,6 @@ else{
 
 </body>
 
+
+<!--merged-->
 </html>
