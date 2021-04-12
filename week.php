@@ -33,10 +33,10 @@
 		</div>
 	</div>
     <?php
-    $recipientEmail = $_POST["guests"];
-    $title = $_POST["title"];
-    $date = $_POST["date"];
-    $time = $_POST["time"];
+    $recipientEmail = $_POST["guests"] ?? "";
+    $title = $_POST["title"] ?? "";
+    $date = $_POST["date"] ?? "";
+    $time = $_POST["time"] ?? "";
 require_once('PHPMailer/PHPMailerAutoload.php');
 $mail = new PHPMailer();
 $mail->isSMTP();
@@ -48,7 +48,7 @@ $mail->isHTML();
 $mail->Username = 'jsivanjali@gmail.com';
 $mail->Password = 'sophisticat';
 $mail->SetFrom('jsivanjali@gmail.com','Sivanjali');
-$mail->Subject = $_POST['title'];
+$mail->Subject = $_POST["title"] ?? "";
 $mail->Body = "This is to notify that you have a meeting on $date at $time regarding $title" ;
 
 $mail->AddAddress($recipientEmail);
@@ -56,91 +56,115 @@ $mail->AddAddress($recipientEmail);
 $result = $mail->Send();
 
 if($result == 1){
-    echo "OK Message";
+    echo "The mail is sent successfully";
+	
 }
 else{
-    echo "";
+    echo "Unsuccessful";
 }
+$conn = new mysqli("localhost","root","","Gcalendar");
+		if($conn->connect_error)
+		{
+		  die('Conection Failed: ' .$conn->connect_error);
+		}
+		else{
+		    $sql = "INSERT INTO events(eid,ename,edate,etime) values(1,'$title','$date','$time')";
+		    if($conn->query($sql) == TRUE)
+		    {
+		      //echo "Inserted";
+		      //header('location: month.html');
+		      echo "<script>window.location.href='month.php';</script>";
+		    }
+		    else {
+		      //echo "failed";
+		      //echo "Error: " . $sql . "<br>" . $conn->error;
+		    }
+		    $conn->close();
+		}
 ?>
-
 	<div id="Eventmodal" class="modal">
-		<div class="modal-content">
-			<button id="EventButton" class="Eventbuttonclass btnclass is-active-btn" onclick="openeventmodal()"><span class="btn-text">Event</span></button>
-			<button id="TaskButton" class="Taskbuttonclass btnclass" onclick="opentaskmodal()"><span class="btn-text">Task</span></button>
-			<button id="ReminderButton" class="Reminderbuttonclass btnclass" onclick="openremmodal()"><span class="btn-text">Reminder</span></button>
-			<form method="POST" action="">
-			<br>
-			<input type="text" placeholder="Add title" name="title">
-			<br>
-			<br>
-			<input type="date" id="date" name="date">
-			<br>
-			<br>
-			<label>Time	</label>
-  		    <input type="time" id="time" name="time">
-			<br>
-			<br>
-			<div id="addguestcontainer">
-			<label>Add Guests</label><br>
-			<input type="email" id="guests" name="guests"   placeholder="someone@gmail.com"pattern=".+@gmail.com" size="20" required>
-			<!--<a ><button id="addguests" onclick="addGuests()">Add</button></a>-->
-			<a onclick="addGuests()">Add</a>
+			<div class="modal-content">
+				<button id="EventButton" class="Eventbuttonclass btnclass is-active-btn" onclick="openeventmodal()"><span class="btn-text">Event</span></button>
+				<button id="TaskButton" class="Taskbuttonclass btnclass" onclick="opentaskmodal()"><span class="btn-text">Task</span></button>
+				<button id="ReminderButton" class="Reminderbuttonclass btnclass" onclick="openremmodal()"><span class="btn-text">Reminder</span></button>
+				<form id="event_form" action="#" method="post">
+				<br>
+				<label class="labelcls">Title:	 </label>
+				<input type="text" placeholder="Add title" name="title" maxlength="15">
+				<br>
+				<br>
+				<label class="labelcls">Date: </label>
+				<input type="date" id="date" name="date">
+				<br>
+				<br>
+				<label class="labelcls">Time: </label>
+				<input type="time" id="time" name="time">
+				<br>
+				<br>
+				<div id="addguestcontainer">
+				<label style="font-family:'Open sans'">Add Guests: </label><br>
+				<input type="text" id="guests" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="guests"  placeholder="Add guest" >
+				<!--<a ><button id="addguests" onclick="addGuests()">Add</button></a>-->
+				<a onclick="addGuests()"  style="font-family:'Open sans'">Add</a>
+				</div>
+				</form>
+				<div>
+				<button class="savebtn" type="submit" form="event_form"><span class="close">Save</span></button>
+			 </div>
 			</div>
-			<div>
-			<button class="submit"><span class="close">Save</span></button>
-            </form>
-		 </div>
 		</div>
-	</div>
 
-
-	<div id="TaskModal" class="modal">
-		<div class="modal-content">
-			<button id="EventButton" class="Eventbuttonclass btnclass" onclick="openeventmodal()"><span class="btn-text">Event</span></button>
-			<button id="TaskButton" class="Taskbuttonclass btnclass is-active-btn" onclick="opentaskmodal()"><span class="btn-text">Task</span></button>
-			<button id="ReminderButton" class="Reminderbuttonclass btnclass" onclick="openremmodal()"><span class="btn-text">Reminder</span></button>
-			<form>
-			<br>
-			<input type="text" placeholder="Add title" name="title">
-			<br>
-			<br>
-			<input type="date" id="date" name="date">
-			<br>
-			<br>
-			<label>Time	</label>
-  		<input type="time" id="time" name="time">
-			<br>
-			<br>
-			<textarea id="description" name="description" placeholder="Desscription.." style="width: 250px; height: 120px;"></textarea>
-		  </form>
-			<div>
-			<button class="savebtn"><span class="close">Save</span></button>
+			<div id="TaskModal" class="modal">
+				<div class="modal-content">
+					<button id="EventButton" class="Eventbuttonclass btnclass" onclick="openeventmodal()"><span class="btn-text">Event</span></button>
+					<button id="TaskButton" class="Taskbuttonclass btnclass is-active-btn" onclick="opentaskmodal()"><span class="btn-text">Task</span></button>
+					<button id="ReminderButton" class="Reminderbuttonclass btnclass" onclick="openremmodal()"><span class="btn-text">Reminder</span></button>
+					<form id="task_form" action="" method="post">
+					<br>
+					<label class="labelcls">Title:	 </label>
+					<input type="text" placeholder="Add title" name="title" maxlength="15">
+					<br>
+					<br>
+					<label class="labelcls">Date: </label>
+					<input type="date" id="date" name="date">
+					<br>
+					<br>
+					<label class="labelcls">Time: </label>
+		  		<input type="time" id="time" name="time">
+					<br>
+					<br>
+					<textarea id="description" name="description" placeholder="Desscription.." style="width: 250px; height: 120px;"></textarea>
+				  </form>
+					<div>
+					<button class="savebtn" type="submit" form="task_form"><span class="close">Save</span></button>
+				</div>
+			</div>
 		</div>
-	</div>
-</div>
 
-<div id="ReminderModal" class="modal">
-	<div class="modal-content">
-		<button id="EventButton" class="Eventbuttonclass btnclass" onclick="openeventmodal()"><span class="btn-text">Event</span></button>
-		<button id="TaskButton" class="Taskbuttonclass btnclass" onclick="opentaskmodal()"><span class="btn-text">Task</span></button>
-		<button id="ReminderButton" class="Reminderbuttonclass btnclass is-active-btn" onclick="openremmodal()"><span class="btn-text">Reminder</span></button>
-		<form>
-		<br>
-		<input type="text" placeholder="Add title" name="title">
-		<br>
-		<br>
-		<input type="date" id="date" name="date">
-		<br>
-		<br>
-		<label>Time	</label>
-		<input type="time" id="time" name="time">
-		<br>
-		</form>
-		<div>
-		<button class="savebtn"><span class="close">Save</span></button>
-	</div>
-</div>
-</div>
+		<div id="ReminderModal" class="modal">
+			<div class="modal-content">
+				<button id="EventButton" class="Eventbuttonclass btnclass" onclick="openeventmodal()"><span class="btn-text">Event</span></button>
+				<button id="TaskButton" class="Taskbuttonclass btnclass" onclick="opentaskmodal()"><span class="btn-text">Task</span></button>
+				<button id="ReminderButton" class="Reminderbuttonclass btnclass is-active-btn" onclick="openremmodal()"><span class="btn-text">Reminder</span></button>
+				<form id="rem_form" action="" method="post">
+				<br>
+				<label class="labelcls">Title:  </label>
+				<input type="text" placeholder="Add title" name="title" maxlength="15">
+				<br>
+				<br>
+				<label class="labelcls">Date: </label>
+				<input type="date" id="date" name="date">
+				<br>
+				<br>
+				<label class="labelcls">Time:	</label>
+				<input type="time" id="time" name="time">
+				<br>
+				</form>
+				<div>
+				<button class="savebtn" type="submit" form="rem_form"><span class="close">Save</span></button>
+			</div>
+			</div>
+			</div>
 
 	<div id="w">
 		<table style="widht:100%;float:right;">

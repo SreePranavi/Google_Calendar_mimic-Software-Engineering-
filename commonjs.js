@@ -74,7 +74,7 @@ function addGuests(){
   var container = document.getElementById("addguestcontainer");
   var input = document.createElement("input");
   input.type = "text";
-  input.placeholder="Add guest"
+  guests.placeholder="someone@gmail.com";
   document.getElementById("addguestcontainer").appendChild(input);
   document.getElementById("addguestcontainer").appendChild(document.createElement("br"));
 }

@@ -134,6 +134,22 @@ table, th{
   background-color: #f1f1f1 ;
 }
 
+/*forms css*/
+input{
+	width : 150px;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.labelcls {
+  text-align: right;
+  width: 20px;
+  float: left;
+  margin-right: 30px;
+  cursor: pointer;
+	font-family: 'Open sans';
+}
 
 /*modals css*/
 .modal {

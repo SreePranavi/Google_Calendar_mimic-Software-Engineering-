@@ -8,7 +8,7 @@ if(count($_POST)>0) {
 		$message = "Invalid Username or Password!";
 	} else {
 		$message = "You are successfully authenticated!";
-		header('Location: http://localhost/OOADSE/month.php');
+		header('Location: http://localhost/OOAD/month.php');
 	}
 }
 ?>
