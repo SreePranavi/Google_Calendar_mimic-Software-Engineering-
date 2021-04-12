@@ -26,9 +26,9 @@
 		&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<div class="dropdown">
 			<button onclick="myFunction()" class="dropbtn">Change View</button>
 			<div id="myDropdown" class="dropdown-content">
-				<a href="day.html">Day</a>
-				<a href="week.html">Week</a>
-				<a href="month.html">Month</a>
+				<a href="day.php">Day</a>
+				<a href="week.php">Week</a>
+				<a href="month.php">Month</a>
 			</div>
 		</div>
 	</div>
