@@ -82,7 +82,7 @@ else{
 			<br>
 			<div id="addguestcontainer">
 			<label>Add Guests</label><br>
-			<input type="text" id="guests" name="guests"  placeholder="Add guest">
+			<input type="email" id="guests" name="guests"   placeholder="someone@gmail.com"pattern=".+@gmail.com" size="20" required>
 			<!--<a ><button id="addguests" onclick="addGuests()">Add</button></a>-->
 			<a onclick="addGuests()">Add</a>
 			</div>
