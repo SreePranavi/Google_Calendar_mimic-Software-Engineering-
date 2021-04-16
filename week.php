@@ -33,7 +33,7 @@
 		</div>
 	</div>
     <?php
-    $recipientEmail = $_POST["guests"] ?? "";
+    $recipientEmail = explode(',',$_POST["guests"]);
     $title = $_POST["title"] ?? "";
     $date = $_POST["date"] ?? "";
     $time = $_POST["time"] ?? "";
@@ -51,24 +51,25 @@ $mail->SetFrom('jsivanjali@gmail.com','Sivanjali');
 $mail->Subject = $_POST["title"] ?? "";
 $mail->Body = "This is to notify that you have a meeting on $date at $time regarding $title" ;
 
-$mail->AddAddress($recipientEmail);
-
-$result = $mail->Send();
-
-if($result == 1){
-    echo "The mail is sent successfully";
+while (list ($key, $val) = each ($recipientEmail)) {
+	$mail->AddAddress($val);
+	}
 	
-}
-else{
-    echo "Unsuccessful";
-}
+	if(!$mail->send()) 
+	{
+	 echo "Mailer Error: " . $mail->ErrorInfo;
+	} 
+	else 
+	{
+	 echo "Message has been sent successfully";
+	}
 $conn = new mysqli("localhost","root","","Gcalendar");
 		if($conn->connect_error)
 		{
 		  die('Conection Failed: ' .$conn->connect_error);
 		}
 		else{
-		    $sql = "INSERT INTO events(eid,ename,edate,etime) values(1,'$title','$date','$time')";
+		    $sql = "INSERT INTO events(eid,ename,edate,etime) values(2,'$title','$date','$time')";
 		    if($conn->query($sql) == TRUE)
 		    {
 		      //echo "Inserted";
@@ -103,9 +104,7 @@ $conn = new mysqli("localhost","root","","Gcalendar");
 				<br>
 				<div id="addguestcontainer">
 				<label style="font-family:'Open sans'">Add Guests: </label><br>
-				<input type="text" id="guests" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="guests"  placeholder="Add guest" >
-				<!--<a ><button id="addguests" onclick="addGuests()">Add</button></a>-->
-				<a onclick="addGuests()"  style="font-family:'Open sans'">Add</a>
+				<input type="text" id="guests" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}+" name="guests"  multiple="yes">
 				</div>
 				</form>
 				<div>
