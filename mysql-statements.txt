@@ -2,6 +2,8 @@ cd c:\xampp\mysql\bin
 mysql -u root
 use Gcalendar;
 create table users(uid int primary key, uname varchar(25) not null, password varchar(10) not null);
-create table events(eid int primary key, ename varchar(15) not null, edate date not null, etime time not null, uid int , foreign key(uid) references users(uid));
+//create table events(eid int primary key, ename varchar(15) not null, edate date not null, etime time not null, uid int , foreign key(uid) references users(uid));
+//create table events_users(id int primary key, user1 int not null, user2 int, user3 int, foreign key(user1) references users(uid), foreign key(user2) references users(uid), foreign key(user3) references users(uid));
 create table events_users(id int primary key, user1 int not null, user2 int, user3 int, foreign key(user1) references users(uid), foreign key(user2) references users(uid), foreign key(user3) references users(uid));
+create table events(eid int primary key AUTO_INCREMENT, ename varchar(15) not null, edate date not null, etime time not null, uid int , foreign key(uid) references users(uid));
 show tables;
